@@ -1,0 +1,7 @@
+# dependencies
+/node_modules
+
+# misc
+.env
+.env.local
+ema-john-simple-update-a2ed3-firebase-adminsdk-g8vhj-0a7fa8b22b.json

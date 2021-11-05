@@ -1,0 +1,32 @@
+.header {
+    text-align: center;
+}
+
+.logo {
+    height: 80px;
+}
+
+.header ul {
+    background-color: #000;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.header li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.header a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 15px;
+    font-weight: 500;
+}
+
+.header li:hover {
+    background-color: #ad1313;
+}

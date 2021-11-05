@@ -22,7 +22,7 @@ async function run() {
         const database = client.db("foodMaster");
         const usersCollection = database.collection("users");
 
-        // POST API
+        // POST API to Insert User
         app.post('/users', async (req, res) => {
             const newUser = req.body;
             const result = await usersCollection.insertOne(newUser);
@@ -46,7 +46,7 @@ async function run() {
             res.send(user)
         })
 
-        // PUT API For User Update
+        // PUT API For Update User
         app.put('/users/:id', async (req, res) => {
             const id = req.params.id;
             const updateUser = req.body;

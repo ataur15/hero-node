@@ -5,7 +5,7 @@ const cors = require('cors');
 const ObjectId = require('mongodb').ObjectId;
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // middleware functions
 app.use(cors());
@@ -37,7 +37,7 @@ async function run() {
             res.send(services);
         });
 
-        // GET API for all services
+        // GET API for a single service
         app.get('/services/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: ObjectId(id) };
@@ -48,7 +48,7 @@ async function run() {
         // console.log('Successfully database connected');
     }
     finally {
-        //   await client.close();
+        // await client.close();
     }
 }
 run().catch(console.dir);
