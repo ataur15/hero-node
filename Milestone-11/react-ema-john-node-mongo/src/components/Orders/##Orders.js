@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 
-
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
@@ -16,22 +15,21 @@ const Orders = () => {
         })
             .then(res => {
                 if (res.status === 200) {
-                    return res.json()
+                    return res.json();
                 }
                 else if (res.status === 401) {
-                    history.push('./login');
+                    history.push('/login');
                 }
-
             })
             .then(data => setOrders(data))
     }, []);
 
     return (
         <div className="items-container">
-            <h1 className="text-center">My Orders : {orders.length}</h1>
+            <h1 className="text-center">Your Orders : {orders.length}</h1>
             <div>
                 {
-                    orders.map(order => <div key={order._id}><p>Name: {order.name} Email: {order.email}</p></div>)
+                    orders.map(order => <p key={order._id}>Name:{order.name} Email:{order.email}</p>)
                 }
             </div>
         </div>

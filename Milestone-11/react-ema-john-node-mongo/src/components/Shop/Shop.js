@@ -10,24 +10,25 @@ const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart();
     const [displayProducts, setDisplayProducts] = useState([]);
-    const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
     const size = 10;
 
     // Data fetch
     useEffect(() => {
         // console.log("Product API called");
-        fetch(`http://localhost:5000/products/?page=${page}&&size=${size}`)
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products);
                 setDisplayProducts(data.products);
-                const count = data.count;
-                const pageNumber = Math.ceil(count / size);
+                const productCount = data.count;
+                const pageNumber = Math.ceil(productCount / size);
                 setPageCount(pageNumber);
                 // console.log("Products received");
             });
     }, [page]);
+
 
     const handleAddToCart = (product) => {
         const exists = cart.find(item => item.key === product.key);
@@ -80,10 +81,10 @@ const Shop = () => {
                     }
                     <div className="pagination">
                         {
-                            [...Array(pageCount).keys()]
-                                .map(number => <button
-                                    className={number === page ? 'selected' : ''}
+                            [...Array(pageCount).keys()].map(number =>
+                                <button
                                     key={number}
+                                    className={page === number ? 'selected' : ''}
                                     onClick={() => setPage(number)}
                                 >{number + 1}</button>)
                         }

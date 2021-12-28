@@ -20,12 +20,12 @@ const Shipping = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Order Processed');
+                    alert('Your order processed');
                     reset();
                 }
             })
 
-    }
+    };
 
     return (
         <div className="main">
