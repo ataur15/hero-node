@@ -4,8 +4,8 @@ import { getStoredCart } from "../utilities/fakedb";
 const useCart = () => {
     const [cart, setCart] = useState([]);
 
+    // Get data from local storage
     useEffect(() => {
-        // Get data from local storage
         const savedCart = getStoredCart();
         const keys = Object.keys(savedCart);
 
@@ -18,7 +18,6 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(products => {
-                // console.log(products);
                 if (products.length) {
                     const storedCart = [];
                     for (const key in savedCart) {

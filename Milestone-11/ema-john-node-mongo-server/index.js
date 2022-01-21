@@ -6,7 +6,7 @@ const ObjectId = require('mongodb').ObjectId;
 var admin = require("firebase-admin");
 
 
-// firebase admin initialize
+// Firebase admin initialize
 var serviceAccount = require("./ema-john-simple-update-a2ed3-firebase-adminsdk-g8vhj-0a7fa8b22b.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
